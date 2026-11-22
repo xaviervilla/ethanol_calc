@@ -39,12 +39,15 @@
     </section>
 
     <section class="card">
-      <h2>Fuel Level</h2>
+	  <!--<h2>Fuel Level</h2>-->
       <div class="control-row">
         <div class="fuel-gauge" aria-hidden="true">
           <img class="fuel-gauge__img" src="assets/fuel-gauge-base.png" alt="" />
           <img class="fuel-gauge__img" id="fuel-gauge-overlay" src="assets/fuel-gauge-overlay.png" alt="" />
           <span class="fuel-gauge__value" id="fuel-gauge-value">25%</span>
+        </div>
+        <div class="control-row--label">
+          <span class="result-label">Fuel Level Percent</span>
         </div>
         <div class="wheel wheel--fuel" id="fuel-wheel" role="slider" tabindex="0"
              aria-label="Fuel level" aria-orientation="vertical"
@@ -54,16 +57,19 @@
             <div class="wheel__list"></div>
           </div>
         </div>
-        <div class="scroll-grab" aria-hidden="true"></div>
+		<!--<div class="scroll-grab" aria-hidden="true"></div>-->
       </div>
     </section>
 
     <section class="card">
-      <h2>Current Blend</h2>
+	  <!--<h2>Current Blend</h2>-->
       <div class="control-row">
         <div class="gauge">
           <img class="gauge__image" src="assets/ethanol-gauge.png" alt="" />
           <span class="gauge__value" id="current-gauge-value">30</span>
+        </div>
+        <div class="control-row--label">
+          <span class="result-label">Current Blend</span>
         </div>
         <div class="wheel wheel--short" id="current-wheel" role="slider" tabindex="0"
              aria-label="Current blend" aria-orientation="vertical"
@@ -73,16 +79,19 @@
             <div class="wheel__list"></div>
           </div>
         </div>
-        <div class="scroll-grab" aria-hidden="true"></div>
+		<!--<div class="scroll-grab" aria-hidden="true"></div>-->
       </div>
     </section>
 
     <section class="card">
-      <h2>E85 Ethanol Percentage</h2>
+	  <!--<h2>E85 Ethanol Percentage</h2>-->
       <div class="control-row">
         <div class="e85-badge">
           <img class="e85-badge__image" src="assets/e85-button.png" alt="" />
           <span class="e85-badge__value" id="e85-value">85</span>
+        </div>
+        <div class="control-row--label">
+          <span class="result-label">E85 Ethanol Percent</span>
         </div>
         <div class="wheel wheel--short" id="e85-wheel" role="slider" tabindex="0"
              aria-label="E85 ethanol percentage" aria-orientation="vertical"
@@ -92,7 +101,7 @@
             <div class="wheel__list"></div>
           </div>
         </div>
-        <div class="scroll-grab" aria-hidden="true"></div>
+		<!--<div class="scroll-grab" aria-hidden="true"></div>-->
       </div>
     </section>
 

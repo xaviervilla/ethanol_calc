@@ -121,19 +121,19 @@ body {
   --item-h: 44px;
   --wheel-h: 132px;
   position: relative;
-  flex: 0 1 180px;
+  flex: 1; 
   min-width: 0;
   height: var(--wheel-h);
   outline: none;
 }
 
 .wheel--short {
-  --item-h: 30px;
-  --wheel-h: 90px;
+  --item-h: 35px;
+  --wheel-h: 105px;
 }
 
 .wheel--short .wheel__item {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .wheel--short .wheel__scroller {
@@ -146,8 +146,8 @@ body {
 }
 
 .wheel--fuel {
-  --item-h: 16px;
-  --wheel-h: 80px;
+  --item-h: 20px;
+  --wheel-h: 100px;
 }
 
 .wheel--fuel .wheel__item {
@@ -248,6 +248,16 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+}
+
+.control-row--label {
+  text-align: center;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 /* Fuel gauge art is 900x900 with the drawing at x 303-867, y 52-866.
