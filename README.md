@@ -1,6 +1,6 @@
 # Ethanol Blend Calculator (Explorer ST)
 
-A small, phone-friendly calculator that tells you how much E85 and pump gas to add to hit a target ethanol blend (E30 or E50) in a Ford Explorer ST.
+A small, phone-friendly calculator that tells you how much E85 and Premium (E10) to add to hit a target ethanol blend (E30 or E50) in a Ford Explorer ST.
 
 Based on the [TunePlus ethanol mix tool](https://www.tuneplusinc.com/pages/tuning-tools).
 
