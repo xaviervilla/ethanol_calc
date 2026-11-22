@@ -2,7 +2,9 @@
 
 A small, phone-friendly calculator that tells you how much E85 and Premium (E10) to add to hit a target ethanol blend (E30 or E50) in a Ford Explorer ST.
 
-Based on the [TunePlus ethanol mix tool](https://www.tuneplusinc.com/pages/tuning-tools).
+Latest Deployment available here: https://xaviervilla.github.io/ethanol_calc/
+
+Click Share and “Add to Home Screen” to save the site as a web app on your phone. 
 
 ## How it works
 
