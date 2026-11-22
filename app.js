@@ -1,3 +1,12 @@
+import {
+  TANK_SIZE,
+  PUMP_ETHANOL,
+  RESOLUTION,
+  clamp,
+  fmt,
+  calculateMix,
+} from './calc.js';
+
 const STORAGE_KEY = 'ethanol-blend-calculator:v1';
 
 const DEFAULTS = {
@@ -8,10 +17,6 @@ const DEFAULTS = {
 };
 
 const BLEND_ETHANOL = { E30: 30, E50: 50 };
-
-function clamp(n, min, max) {
-  return Math.min(max, Math.max(min, n));
-}
 
 function loadState() {
   const state = { ...DEFAULTS };
@@ -51,31 +56,7 @@ function saveState(state) {
   }
 }
 
-function fmt(n) {
-  return String(Math.round(n));
-}
-
 let state = loadState();
-
-const TANK_SIZE = 20.2; // Explorer ST, gallons
-const PUMP_ETHANOL = 10; // gasoline ethanol %
-const RESOLUTION = 0.001;
-
-function calculateMix(currentFillLevel, targetMix, currentMix, e85EthanolContent) {
-  var currentGallons = TANK_SIZE * (currentFillLevel / 100);
-  var e85Added = 0;
-  var pumpAdded = 0;
-  while (TANK_SIZE - currentGallons > 0) {
-    var newEthanolContent = currentMix < targetMix ? e85EthanolContent : PUMP_ETHANOL;
-    var addingE85 = currentMix < targetMix;
-    var newMix = (currentGallons * currentMix + RESOLUTION * newEthanolContent) / (currentGallons + RESOLUTION);
-    if (addingE85) e85Added += RESOLUTION;
-    else pumpAdded += RESOLUTION;
-    currentGallons += RESOLUTION;
-    currentMix = (currentGallons * currentMix + RESOLUTION * newEthanolContent) / (currentGallons + RESOLUTION);
-  }
-  return { E85Added: e85Added, PumpAdded: pumpAdded, ResultingMix: currentMix };
-}
 
 const targetButtons = document.querySelectorAll('[data-blend]');
 const e85Value = document.getElementById('e85-value');
@@ -224,8 +205,8 @@ function render() {
   if (fuelGaugeValue) fuelGaugeValue.textContent = fmt(state.fuel) + '%';
 
   // Calculate blend
-  var targetMix = BLEND_ETHANOL[state.target];
-  var res = calculateMix(state.fuel, targetMix, state.current, state.e85);
+  const targetMix = BLEND_ETHANOL[state.target];
+  const res = calculateMix(state.fuel, targetMix, state.current, state.e85);
   if (resultE85) resultE85.textContent = res.E85Added.toFixed(2) + ' gal';
   if (resultPump) resultPump.textContent = res.PumpAdded.toFixed(2) + ' gal';
   if (resultMix) resultMix.textContent = res.ResultingMix.toFixed(1) + '% (E' + Math.round(res.ResultingMix) + ')';
