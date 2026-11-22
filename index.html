@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#282828" />
+  <title>Ethanol Blend Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <div class="app__header-text">
+        <h1>Ethanol Blend Calculator</h1>
+        <p class="app__subtitle">Explorer ST</p>
+      </div>
+      <div class="segmented segmented--compact" role="group" aria-label="Target ethanol blend">
+        <button type="button" class="segmented__option" data-blend="E30" aria-pressed="true">E30</button>
+        <button type="button" class="segmented__option" data-blend="E50" aria-pressed="false">E50</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Result</h2>
+      <div class="result-grid">
+        <div class="result-item result-item--e85">
+          <span class="result-label">E85 to Add</span>
+          <span class="result-value" id="result-e85">—</span>
+        </div>
+        <div class="result-item result-item--pump">
+          <span class="result-label">Pump Gas to Add</span>
+          <span class="result-value" id="result-pump">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Resulting Mix</span>
+          <span class="result-value" id="result-mix">—</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Fuel Level</h2>
+      <div class="control-row">
+        <div class="fuel-gauge" aria-hidden="true">
+          <img class="fuel-gauge__img" src="assets/fuel-gauge-base.png" alt="" />
+          <img class="fuel-gauge__img" id="fuel-gauge-overlay" src="assets/fuel-gauge-overlay.png" alt="" />
+          <span class="fuel-gauge__value" id="fuel-gauge-value">25%</span>
+        </div>
+        <div class="wheel wheel--fuel" id="fuel-wheel" role="slider" tabindex="0"
+             aria-label="Fuel level" aria-orientation="vertical"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+          <div class="wheel__band" aria-hidden="true"></div>
+          <div class="wheel__scroller">
+            <div class="wheel__list"></div>
+          </div>
+        </div>
+        <div class="scroll-grab" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Current Blend</h2>
+      <div class="control-row">
+        <div class="gauge">
+          <img class="gauge__image" src="assets/ethanol-gauge.png" alt="" />
+          <span class="gauge__value" id="current-gauge-value">30</span>
+        </div>
+        <div class="wheel wheel--short" id="current-wheel" role="slider" tabindex="0"
+             aria-label="Current blend" aria-orientation="vertical"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="30">
+          <div class="wheel__band" aria-hidden="true"></div>
+          <div class="wheel__scroller">
+            <div class="wheel__list"></div>
+          </div>
+        </div>
+        <div class="scroll-grab" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>E85 Ethanol Percentage</h2>
+      <div class="control-row">
+        <div class="e85-badge">
+          <img class="e85-badge__image" src="assets/e85-button.png" alt="" />
+          <span class="e85-badge__value" id="e85-value">85</span>
+        </div>
+        <div class="wheel wheel--short" id="e85-wheel" role="slider" tabindex="0"
+             aria-label="E85 ethanol percentage" aria-orientation="vertical"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="85">
+          <div class="wheel__band" aria-hidden="true"></div>
+          <div class="wheel__scroller">
+            <div class="wheel__list"></div>
+          </div>
+        </div>
+        <div class="scroll-grab" aria-hidden="true"></div>
+      </div>
+    </section>
+
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
